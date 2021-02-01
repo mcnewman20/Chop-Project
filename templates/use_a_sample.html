@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    input[type=button], input[type=submit], input[type=reset] {
+        background-color: #000000;
+        border: none;
+        color: white;
+        padding: 16px 32px;
+        text-decoration: none;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+
+    table, th, td {
+        border: 1px solid black;
+    }
+</style>
+</head>
+<body>
+Enter the code of the sample you want to use
+    <form action="/use_a_sample" method="post">
+    {% csrf_token %}
+    {{ sampleForm }}
+    <input type="submit" value="Submit">
+</form>
+
+<p>
+    <table style="width:100%">
+  <tr>
+    <th>Sample Code</th>
+    <th>Amount available</th>
+    <th>Sample Type</th>
+  </tr>
+    <tr>
+    <th>{{ sample.cur_sample_num }}</th>
+    <th>{{ sample.cur_sample.volume_remaining }}</th>
+    <th>{{ sample.cur_sample.full_sample_type_desc }}</th>
+  </tr>
+</table>
+</p>
+
+<p>
+Enter the amount you are going to use
+    <form action="/use_a_sample" method="post">
+    {% csrf_token %}
+    {{ useSampleForm }}
+    <input type="submit" value="Submit">
+</form>
+</p>
+</body>
+</html>

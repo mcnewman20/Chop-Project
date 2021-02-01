@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    body {
+  background-color: black;
+}
+
+h2 {
+  color: white;
+  margin-left: 20px;
+    font-family: "Times New Roman", Times, serif;
+}
+
+.button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<h2>Matthew Newman's Showcase Project</h2>
+{% load static %}
+<p><img src="{% static 'images/chop.png' %}" alt="My image" width="1500" height="750"></p>
+
+<button class = button onclick = "location.href='dashboard'">Dashboard</button>
+<button class = button onclick = "location.href='use_a_sample'">Use a Sample</button>
+
+</body>
+</html>
