@@ -1,0 +1,26 @@
+CREATE TABLE `dashboard_sample_information` (
+  `aliquot_pk_serial` int NOT NULL,
+  `received_on` date DEFAULT NULL,
+  `collected_on` date DEFAULT NULL,
+  `sample_type_code` varchar(45) DEFAULT NULL,
+  `secondary_sample_code` varchar(45) DEFAULT NULL,
+  `sample_type` varchar(45) DEFAULT NULL,
+  `secondary_sample_type` varchar(45) DEFAULT NULL,
+  `full_sample_type_desc` varchar(45) DEFAULT NULL,
+  `origin_aliquot_desc` varchar(45) DEFAULT NULL,
+  `tissue_type` varchar(45) DEFAULT NULL,
+  `specimen_category` varchar(45) DEFAULT NULL,
+  `volume_received` int NOT NULL,
+  `volume_remaining` int DEFAULT NULL,
+  `alq_status` varchar(45) DEFAULT NULL,
+  `available_flag` int DEFAULT NULL,
+  `origin_aliquot_desc2` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`aliquot_pk_serial`)
+);
+
+LOAD DATA LOCAL INFILE '<path to csv>'
+INTO TABLE dashboard_sample_informatoion
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
