@@ -21,7 +21,6 @@
 </style>
 </head>
 <body>
-Enter the code of the sample you want to use
     <form action="/use_a_sample" method="post">
     {% csrf_token %}
     {{ sampleForm }}
@@ -44,7 +43,6 @@ Enter the code of the sample you want to use
 </p>
 
 <p>
-Enter the amount you are going to use
     <form action="/use_a_sample" method="post">
     {% csrf_token %}
     {{ useSampleForm }}

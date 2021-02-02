@@ -31,7 +31,8 @@ def get_sample_code(request):
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
         # check whether it's valid:
-        if sampleForm.is_valid():
+        if sampleForm.is_valid() and sampleForm.cleaned_data['sample_code'] is not '':
+            print('Sample form entered')
             # process the data in form.cleaned_data as required
             # ...
             # redirect to a new URL:
@@ -39,6 +40,7 @@ def get_sample_code(request):
             return render(request, 'use_a_sample.html', {'sampleForm': sampleForm, 'useSampleForm': useSampleForm,
                                                          'sample': sample_controller1})
         if useSampleForm.is_valid():
+            print('use enter')
             # process the data in form.cleaned_data as required
             # ...
             # redirect to a new URL:
