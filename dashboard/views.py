@@ -31,20 +31,22 @@ def get_sample_code(request):
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
         # check whether it's valid:
-        if sampleForm.is_valid() and sampleForm.cleaned_data['sample_code'] is not '':
+        if useSampleForm.is_valid() and sampleForm.is_valid() and useSampleForm.cleaned_data['use_sample_code'] is not None:
+            print('use enter')
+            # process the data in form.cleaned_data as required
+            # ...
+            # redirect to a new URL:
+            sample_controller1.set_current(useSampleForm.cleaned_data['sample_code'])
+            sample_controller1.use_sample(useSampleForm.cleaned_data['use_sample_code'])
+            return render(request, 'use_a_sample.html', {'sampleForm': sampleForm, 'useSampleForm': useSampleForm,
+                                                         'sample': sample_controller1})
+
+        if sampleForm.is_valid():
             print('Sample form entered')
             # process the data in form.cleaned_data as required
             # ...
             # redirect to a new URL:
             sample_controller1.set_current(sampleForm.cleaned_data['sample_code'])
-            return render(request, 'use_a_sample.html', {'sampleForm': sampleForm, 'useSampleForm': useSampleForm,
-                                                         'sample': sample_controller1})
-        if useSampleForm.is_valid():
-            print('use enter')
-            # process the data in form.cleaned_data as required
-            # ...
-            # redirect to a new URL:
-            sample_controller1.use_sample(useSampleForm.cleaned_data['use_sample_code'])
             return render(request, 'use_a_sample.html', {'sampleForm': sampleForm, 'useSampleForm': useSampleForm,
                                                          'sample': sample_controller1})
 
