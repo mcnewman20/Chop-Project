@@ -2,7 +2,7 @@
 
 Chop-Project is a demonstration in which given a data set provide a solution in which the data is accessible and 
 modifiable. In it's current state it is used for accessing a dashboard and a way for a doctor to track the usage of a 
-sample. Currently is accessed at www.mattynewms.com
+sample. Currently is accessed at mattynewms.com
 
 ## Installation
 
